@@ -27,4 +27,19 @@ class Library {
     this.markRead = this.markRead.bind(this);
     this.adBook = this.addBook.bind(this);
   }
+
+  markRead(checkbox) {
+    for (let book of Library.books) {
+      if (book.id == checkbox.id) {
+        console.log(checkbox);
+        book.read = true;
+        checkbox.checked = true;
+        checkbox.disabled = true;
+      }
+    }
+  }
+
+  addBook() {
+    let title = getElementById("titleInput").value;
+  }
 }
