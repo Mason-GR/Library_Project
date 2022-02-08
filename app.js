@@ -25,7 +25,7 @@ class Library {
     ];
 
     this.markRead = this.markRead.bind(this);
-    this.adBook = this.addBook.bind(this);
+    this.addBook = this.addBook.bind(this);
   }
 
   markRead(checkbox) {
@@ -44,7 +44,7 @@ class Library {
     let author = document.getElementById("authInput").value;
     let read = document.getElementById("readCheckbox").checked;
 
-    let newBooke = new Book(this.bookCount, title, author, read);
+    let newBook = new Book(this.bookCount, title, author, read);
     this.books.push(newBook);
   }
 }
