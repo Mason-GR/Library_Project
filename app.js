@@ -40,6 +40,11 @@ class Library {
   }
 
   addBook() {
-    let title = getElementById("titleInput").value;
+    let title = document.getElementById("titleInput").value;
+    let author = document.getElementById("authInput").value;
+    let read = document.getElementById("readCheckbox").checked;
+
+    let newBooke = new Book(this.bookCount, title, author, read);
+    this.books.push(newBook);
   }
 }
