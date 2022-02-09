@@ -46,5 +46,34 @@ class Library {
 
     let newBook = new Book(this.bookCount, title, author, read);
     this.books.push(newBook);
+
+    let newRow = document.createElement("tr");
+
+    let td1 = document.createElement("td");
+    td1.textContent = newBook.title;
+
+    let td2 = document.createElement("td");
+    td2.textContent = newBook.author;
+
+    let td3 = document.createElement("td");
+    let ckBox = document.createElement("input");
+    ckBox.id = this.bookCount;
+    ckBox.type = "checkbox";
+    ckBox.checked = newBook.read;
+    ckBox.disabled = newBook.read;
+    ckBox.addEventListener("click", () => Library.markRead(ckBox));
+    td3.appendChild(ckBox);
+
+    newRow.appendChild(td1);
+    newRow.appendChild(td2);
+    newRow.appendChild(td3);
+    let tableBody = document.querySelector("tbody");
+    tableBody.appendChild(newRow);
+
+    this.bookCount++;
   }
 }
+
+let library = new library();
+
+let btn = document
