@@ -3,6 +3,10 @@ console.log("Hello World!\n==========\n");
 // PROJECT Section
 console.log("PROJECT:\n==========\n");
 
+// 1. Create a class Book that has the following properties:
+//    • Title (string)
+//    • Author (string)
+//    • Read (boolean)
 class Book {
   constructor(id, title, author, read) {
     this.id = id;
@@ -12,6 +16,10 @@ class Book {
   }
 }
 
+/* 2. Create a class Library that has the following properties and methods:
+      • Book count (number)
+      • Books (array of books)
+      • markRead method */
 class Library {
   constructor() {
     this.bookcount = 2;
@@ -72,8 +80,14 @@ class Library {
 
     this.bookCount++;
   }
+
+  removeBook() {}
 }
 
-let library = new library();
+let library = new Library();
 
 let btn = document
+  .getElementById("addButton")
+  .addEventListener("click", () =>
+    library.addBook(library.books, library.bookCount)
+  );
