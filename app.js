@@ -81,7 +81,11 @@ class Library {
     this.bookCount++;
   }
 
-  removeBook() {}
+  removeBook(id) {
+    this.books.forEach((newBook) => {
+
+    });
+  }
 }
 
 let library = new Library();
@@ -91,3 +95,5 @@ let btn = document
   .addEventListener("click", () =>
     library.addBook(library.books, library.bookCount)
   );
+
+  
