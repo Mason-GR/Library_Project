@@ -56,6 +56,7 @@ class Library {
     this.books.push(newBook);
 
     let newRow = document.createElement("tr");
+    newRow.setAttribute("data-id", this.bookCount);
 
     let td1 = document.createElement("td");
     td1.textContent = newBook.title;
@@ -72,13 +73,33 @@ class Library {
     ckBox.addEventListener("click", () => Library.markRead(ckBox));
     td3.appendChild(ckBox);
 
+    let td4 = document.createElement("td");
+    let deleteButton = document.createElement("button");
+    deleteButton.innerText = "Remove Book";
+    deleteButton.classList.add("removeBtn");
+
+    deleteButton.addEventListener("click", (event) => {
+      const button = event.target;
+      const row = button.parentNode.parentNode;
+      const id = row.getAttribute("data-id");
+      library.removeBook(id);
+    });
+
+    td4.appendChild(deleteButton);
+
     newRow.appendChild(td1);
     newRow.appendChild(td2);
     newRow.appendChild(td3);
+    newRow.appendChild(td4);
     let tableBody = document.querySelector("tbody");
     tableBody.appendChild(newRow);
 
     this.bookCount++;
+  }
+
+  removeBook(id) {
+    var row = document.querySelectorAll(`[data-id="${id}"]`)[0];
+    row.remove();
   }
 }
 
@@ -89,3 +110,12 @@ let btn = document
   .addEventListener("click", () =>
     library.addBook(library.books, library.bookCount)
   );
+
+document
+  .getElementsByClassName("removeBtn")[0]
+  .addEventListener("click", (event) => {
+    const button = event.target;
+    const row = button.parentNode.parentNode;
+    const id = row.getAttribute("data-id");
+    library.removeBook(id);
+  });
