@@ -66,6 +66,7 @@ class Library {
     let td3 = document.createElement("td");
     let ckBox = document.createElement("input");
     ckBox.id = this.bookCount;
+    ckBox.type = "checkbox";
     ckBox.checked = newBook.read;
     ckBox.disabled = newBook.read;
     ckBox.addEventListener("click", () => Library.markRead(ckBox));
